@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Vote for Your Favorite Programming Language</h1>
+
+        <div class="voting-section">
+            <button class="vote-btn" onclick="vote('JavaScript')">JavaScript</button>
+            <button class="vote-btn" onclick="vote('Python')">Python</button>
+            <button class="vote-btn" onclick="vote('Java')">Java</button>
+            <button class="reset-btn" onclick="resetVotes()">Reset Votes</button>
+        </div>
+
+        <div class="results-section">
+            <h2>Live Results</h2>
+            <div class="result-item">
+                <span class="language">JavaScript:</span>
+                <span id="javascript-votes" class="vote-count">0</span>
+                <div class="progress-bar">
+                    <div id="javascript-bar" class="progress-fill"></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <span class="language">Python:</span>
+                <span id="python-votes" class="vote-count">0</span>
+                <div class="progress-bar">
+                    <div id="python-bar" class="progress-fill"></div>
+                </div>
+            </div>
+            <div class="result-item">
+                <span class="language">Java:</span>
+                <span id="java-votes" class="vote-count">0</span>
+                <div class="progress-bar">
+                    <div id="java-bar" class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="total-votes">
+            Total Votes: <span id="total-votes">0</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
