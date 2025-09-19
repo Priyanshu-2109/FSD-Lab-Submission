@@ -1,0 +1,356 @@
+/* Tax Form Income Calculator Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+header {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+main {
+  padding: 3rem 2rem;
+}
+
+.income-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  border: 2px solid #e9ecef;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+.form-group input:hover {
+  border-color: #adb5bd;
+  background: white;
+}
+
+.calculate-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  padding: 1.2rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+}
+
+.calculate-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(40, 167, 69, 0.4);
+  background: linear-gradient(135deg, #218838 0%, #1abc9c 100%);
+}
+
+.calculate-btn:active {
+  transform: translateY(-1px);
+}
+
+.error-messages {
+  background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
+}
+
+.error-messages h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.error-messages ul {
+  list-style: none;
+  padding: 0;
+}
+
+.error-messages li {
+  padding: 0.3rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.error-messages li::before {
+  content: "⚠";
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+}
+
+.result {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e9ecef;
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #667eea;
+}
+
+.income-breakdown {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 5px solid #667eea;
+}
+
+.income-breakdown p {
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.income-breakdown p:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: transparent;
+  margin: 0 1rem;
+}
+
+.income-breakdown .total {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #2c3e50;
+  background: white;
+  padding: 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.income-breakdown hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  margin: 1rem 0;
+  border-radius: 2px;
+}
+
+/* Special styling for tax amount */
+.income-breakdown p[style*="color: #dc3545"] {
+  background: rgba(220, 53, 69, 0.1);
+  padding: 0.5rem;
+  border-radius: 6px;
+  border-left: 4px solid #dc3545;
+}
+
+/* Special styling for final income */
+.income-breakdown p[style*="color: #28a745"] {
+  background: rgba(40, 167, 69, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    margin: 10px;
+    border-radius: 15px;
+  }
+
+  header {
+    padding: 2rem 1rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 2rem 1rem;
+  }
+
+  .income-form,
+  .result {
+    padding: 1.5rem;
+  }
+
+  .form-group input {
+    padding: 0.8rem;
+  }
+
+  .calculate-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .income-breakdown p {
+    font-size: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .income-breakdown p:before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .result h2 {
+    font-size: 1.5rem;
+  }
+
+  .income-breakdown .total {
+    font-size: 1.1rem;
+  }
+}
+
+/* Loading states and transitions */
+.calculate-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.form-group input:invalid {
+  border-color: #dc3545;
+  background: rgba(220, 53, 69, 0.05);
+}
+
+.form-group input:valid {
+  border-color: #28a745;
+}
+
+/* Hover effects for better UX */
+.income-form:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.result:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon additions */
+.form-group label::before {
+  content: "💰";
+  margin-right: 0.5rem;
+}
+
+.result h2::before {
+  content: "📊";
+  margin-right: 0.5rem;
+}
+
+.error-messages h3::before {
+  content: "🚨";
+  margin-right: 0.5rem;
+}
